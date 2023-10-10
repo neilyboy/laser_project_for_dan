@@ -3,28 +3,28 @@
 #include <ESPAsyncWebServer.h>
 
 // Define the connections for the first stepper motor
-#define STEPPER1_PIN_1 32 // GPIO 18
-#define STEPPER1_PIN_2 33 // GPIO 19
-#define STEPPER1_PIN_3 25 // GPIO 20
-#define STEPPER1_PIN_4 26 // GPIO 21
+#define STEPPER1_PIN_1 32
+#define STEPPER1_PIN_2 33
+#define STEPPER1_PIN_3 25
+#define STEPPER1_PIN_4 26
 
 // Define the connections for the second stepper motor
-#define STEPPER2_PIN_1 19 // Example GPIO for the second motor
-#define STEPPER2_PIN_2 21 // Example GPIO for the second motor
-#define STEPPER2_PIN_3 22 // Example GPIO for the second motor
-#define STEPPER2_PIN_4 23 // Example GPIO for the second motor
+#define STEPPER2_PIN_1 19
+#define STEPPER2_PIN_2 21
+#define STEPPER2_PIN_3 22
+#define STEPPER2_PIN_4 23
 
 // Define the connections for the third stepper motor
-#define STEPPER3_PIN_1 15 // Example GPIO for the second motor
-#define STEPPER3_PIN_2 2 // Example GPIO for the second motor
-#define STEPPER3_PIN_3 4 // Example GPIO for the second motor
-#define STEPPER3_PIN_4 16 // Example GPIO for the second motor
+#define STEPPER3_PIN_1 15
+#define STEPPER3_PIN_2 2
+#define STEPPER3_PIN_3 4
+#define STEPPER3_PIN_4 16
 
 // Define the connections for the third stepper motor
-#define STEPPER4_PIN_1 18 // Example GPIO for the second motor
-#define STEPPER4_PIN_2 17 // Example GPIO for the second motor was pin 13 was an issue
-#define STEPPER4_PIN_3 14 // Example GPIO for the second motor
-#define STEPPER4_PIN_4 27 // Example GPIO for the second motor
+#define STEPPER4_PIN_1 18
+#define STEPPER4_PIN_2 17
+#define STEPPER4_PIN_3 14
+#define STEPPER4_PIN_4 27
 
 // Define the limit switch pins for the first and second motors
 #define LIMIT_SWITCH_PIN_1 34 // GPIO for the first motor's limit switch
@@ -204,7 +204,7 @@ void setup() {
   server.on("/slider1", HTTP_GET, [](AsyncWebServerRequest *request){
     if (request->hasParam("value")) {
       String sliderValue = request->getParam("value")->value();
-      int targetPosition = map(sliderValue.toInt(), 0, 100, -200, 200); // Map to stepper steps
+      int targetPosition = map(sliderValue.toInt(), 0, 100, -150, 150); // Map to stepper steps
       stepper1.moveTo(targetPosition);
       request->send(200, "text/plain", "Motor 1 Slider value set to " + sliderValue);
     } else {
@@ -215,7 +215,7 @@ void setup() {
   server.on("/slider2", HTTP_GET, [](AsyncWebServerRequest *request){
     if (request->hasParam("value")) {
       String sliderValue = request->getParam("value")->value();
-      int targetPosition = map(sliderValue.toInt(), 0, 100, -200, 200); // Map to stepper steps
+      int targetPosition = map(sliderValue.toInt(), 0, 100, -150, 150); // Map to stepper steps
       stepper2.moveTo(targetPosition);
       request->send(200, "text/plain", "Motor 2 Slider value set to " + sliderValue);
     } else {
@@ -226,7 +226,7 @@ void setup() {
   server.on("/slider3", HTTP_GET, [](AsyncWebServerRequest *request){
     if (request->hasParam("value")) {
       String sliderValue = request->getParam("value")->value();
-      int targetPosition = map(sliderValue.toInt(), 0, 100, -200, 200); // Map to stepper steps
+      int targetPosition = map(sliderValue.toInt(), 0, 100, -150, 150); // Map to stepper steps
       stepper3.moveTo(targetPosition);
       request->send(200, "text/plain", "Motor 3 Slider value set to " + sliderValue);
     } else {
@@ -237,7 +237,7 @@ void setup() {
   server.on("/slider4", HTTP_GET, [](AsyncWebServerRequest *request){
     if (request->hasParam("value")) {
       String sliderValue = request->getParam("value")->value();
-      int targetPosition = map(sliderValue.toInt(), 0, 100, -200, 200); // Map to stepper steps
+      int targetPosition = map(sliderValue.toInt(), 0, 100, -150, 150); // Map to stepper steps
       stepper4.moveTo(targetPosition);
       request->send(200, "text/plain", "Motor 3 Slider value set to " + sliderValue);
     } else {
