@@ -1,0 +1,11 @@
+html += "var slider1 = document.getElementById('slider1');";
+html += "slider1.oninput = function() {";
+html += "  document.getElementById('sliderValue1').innerHTML = slider1.value;";
+html += "  var xhttp = new XMLHttpRequest();";
+html += "  xhttp.open('GET', '/slider1?value=' + slider1.value, true);";
+html += "  xhttp.send();";
+html += "  // Introduce a delay here (e.g., 500 milliseconds)";
+html += "  setTimeout(function() {";
+html += "    xhttp.abort(); // Abort the previous request";
+html += "  }, 500);";
+html += "};";
