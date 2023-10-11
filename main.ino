@@ -16,7 +16,7 @@
 
 // Define the connections for the third stepper motor
 #define STEPPER3_PIN_1 15
-#define STEPPER3_PIN_2 2
+#define STEPPER3_PIN_2 5
 #define STEPPER3_PIN_3 4
 #define STEPPER3_PIN_4 16
 
