@@ -47,8 +47,8 @@ AccelStepper stepper3(AccelStepper::FULL4WIRE, STEPPER3_PIN_1, STEPPER3_PIN_3, S
 AccelStepper stepper4(AccelStepper::FULL4WIRE, STEPPER4_PIN_1, STEPPER4_PIN_3, STEPPER4_PIN_2, STEPPER4_PIN_4);
 
 // Replace with your network credentials
-const char* ssid = "Hagan";
-const char* password = "3092648336";
+const char* ssid = "SSID";
+const char* password = "Password";
 
 // Create an instance of the AsyncWebServer
 AsyncWebServer server(80);
